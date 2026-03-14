@@ -1,5 +1,7 @@
 package com.smarttask.backend.controller;
 
+import com.smarttask.backend.dto.LoginRequest;
+import com.smarttask.backend.dto.LoginResponse;
 import com.smarttask.backend.dto.UserResponse;
 import com.smarttask.backend.entity.User;
 import com.smarttask.backend.service.UserService;
@@ -23,5 +25,10 @@ public class UserController {
     System.out.println("Email: " + user.getEmail());
 
         return userService.registerUser(user);
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@RequestBody LoginRequest loginRequest){
+        return userService.loginUser(loginRequest);
     }
 }

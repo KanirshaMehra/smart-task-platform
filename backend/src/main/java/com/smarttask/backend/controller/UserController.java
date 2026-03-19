@@ -5,10 +5,7 @@ import com.smarttask.backend.dto.LoginResponse;
 import com.smarttask.backend.dto.UserResponse;
 import com.smarttask.backend.entity.User;
 import com.smarttask.backend.service.UserService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -31,4 +28,10 @@ public class UserController {
     public LoginResponse login(@RequestBody LoginRequest loginRequest){
         return userService.loginUser(loginRequest);
     }
-}
+
+    @GetMapping("/test")
+        public String test(){
+            return "Protected Endpoint";
+        }
+    }
+

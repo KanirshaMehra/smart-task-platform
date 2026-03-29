@@ -1,9 +1,12 @@
 package com.smarttask.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -23,5 +26,9 @@ public class User {
     public Long getId() {
         return id;
     }
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private List<Task> tasks;
 
 }
